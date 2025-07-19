@@ -1,0 +1,129 @@
+RPC_ERROR
+
+Odoo Server Error
+
+Occured on localhost:8069 on model ir.module.module and id 17 on 2025-07-19 08:29:02 GMT
+
+Traceback (most recent call last):
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\tools\convert.py", line 537, in _tag_root
+    f(rec)
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\tools\convert.py", line 437, in _tag_record
+    record = model._load_records([data], self.mode == 'update')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\models.py", line 5509, in _load_records
+    records = self._load_records_create([data['values'] for data in to_create])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\models.py", line 5413, in _load_records_create
+    records = self.create(vals_list)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "<decorator-gen-9>", line 2, in create
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\api.py", line 496, in _model_create_multi
+    return create(self, arg)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\addons\base\models\ir_ui_view.py", line 518, in create
+    result = super(View, self.with_context(ir_ui_view_partial_validation=True)).create(vals_list)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<decorator-gen-0>", line 2, in create
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\api.py", line 496, in _model_create_multi
+    return create(self, arg)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\models.py", line 5017, in create
+    records = self._create(data_list)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\models.py", line 5184, in _create
+    row.append(field.convert_to_column_insert(stored[fname], self, stored))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\fields.py", line 986, in convert_to_column_insert
+    value = self.convert_to_column(value, record, values, validate)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\fields.py", line 2982, in convert_to_column
+    value = self.convert_to_cache(value, record)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\fields.py", line 2992, in convert_to_cache
+    raise ValueError("Wrong value for %s: %r" % (self, value))
+ValueError: Wrong value for ir.ui.view.type: 'tree'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\http.py", line 1976, in _transactioning
+    return service_model.retrying(func, env=self.env)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\service\model.py", line 156, in retrying
+    result = func()
+             ^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\http.py", line 1943, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\http.py", line 2191, in dispatch
+    result = self.request.registry['ir.http']._dispatch(endpoint)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\addons\base\models\ir_http.py", line 333, in _dispatch
+    result = endpoint(**request.params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\http.py", line 740, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\addons\web\controllers\dataset.py", line 42, in call_button
+    action = call_kw(request.env[model], method, args, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\api.py", line 533, in call_kw
+    result = getattr(recs, name)(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\python\Lib\site-packages\decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\addons\base\models\ir_module.py", line 75, in check_and_log
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\addons\base\models\ir_module.py", line 480, in button_immediate_install
+    return self._button_immediate_function(self.env.registry[self._name].button_install)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\addons\base\models\ir_module.py", line 604, in _button_immediate_function
+    registry = modules.registry.Registry.new(self._cr.dbname, update_module=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\python\Lib\site-packages\decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\tools\func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\modules\registry.py", line 127, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\modules\loading.py", line 484, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\modules\loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+                        ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\modules\loading.py", line 228, in load_module_graph
+    load_data(env, idref, mode, kind='data', package=package)
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\modules\loading.py", line 72, in load_data
+    tools.convert_file(env, package.name, filename, idref, mode, noupdate, kind)
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\tools\convert.py", line 608, in convert_file
+    convert_xml_import(env, module, fp, idref, mode, noupdate)
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\tools\convert.py", line 679, in convert_xml_import
+    obj.parse(doc.getroot())
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\tools\convert.py", line 594, in parse
+    self._tag_root(de)
+  File "C:\Program Files\Odoo 18.0.20250531\server\odoo\tools\convert.py", line 550, in _tag_root
+    raise ParseError('while parsing %s:%s, somewhere inside\n%s' % (
+odoo.tools.convert.ParseError: while parsing file:/c:/program%20files/odoo%2018.0.20250531/server/odoo/addons/akademik/views/mahasiswa_views.xml:3, somewhere inside
+<record id="view_mahasiswa_tree" model="ir.ui.view">
+        <field name="name">akademik.mahasiswa.tree</field>
+        <field name="model">akademik.mahasiswa</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Mahasiswa">
+                <field name="name"/>
+                <field name="nim"/>
+                <field name="prodi_id"/>
+            </tree>
+        </field>
+    </record>
+
+The above server error caused the following client error:
+RPC_ERROR: Odoo Server Error
+    RPC_ERROR
+        at makeErrorFromResponse (http://localhost:8069/web/assets/be5ad53/web.assets_web.min.js:3148:163)
+        at XMLHttpRequest.<anonymous> (http://localhost:8069/web/assets/be5ad53/web.assets_web.min.js:3153:13)
